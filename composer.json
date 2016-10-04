@@ -1,0 +1,17 @@
+{
+    "name": "peterziv/yii2-baseUI",
+    "description": "Some basic widgets for Yii2",
+    "type": "library",
+	"keywords": ["yii2","extension","view","widget"],
+    "license": "Apache License 2.0",
+    "minimum-stability": "beta",
+	"authors": [
+        {
+            "name": "peter.ziv",
+            "email": "peter.ziv@hotmail.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": { "peterziv\\baseUI\\": "" }
+    }
+}
