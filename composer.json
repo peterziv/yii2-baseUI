@@ -4,7 +4,7 @@
     "type": "library",
 	"keywords": ["yii2","extension","view","widget"],
     "license": "Apache License 2.0",
-    "minimum-stability": "beta",
+    "minimum-stability": "dev",
 	"authors": [
         {
             "name": "peter.ziv",
