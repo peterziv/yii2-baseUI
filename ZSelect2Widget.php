@@ -13,26 +13,24 @@ use yii\helpers\Html;
  * @property string label Title of the widget.
  * @property array $initList1 It is data of dropdown list #1
  * @property array $initList2 It is initial data of dropdown list #2
- * @property string $postUrl the post url to get new data of dropdown list #2
- * @property string $dropDownList1Name the element name of dropdown list #1, it also the key post item to refresh data of dropdown list #2
- * @property \yii\db\ActiveRecord $model It is optional. The model object that can be used to render views .
- * @property string dropDownList2ID if $model exsts, it will define the id and name of dropdown list #2 by $model, orwise it is self for the id and name of dropdown list #2
+ * @property string $postUrl the post url to get new data of dropdown list #2. The default is account/list
+ * @property string $dropDownList1Name the element name of dropdown list #1, it also the key post item to refresh data of dropdown list #2. The default is account_type
+ * @property \yii\db\ActiveRecord $model (Optional)It is optional. The model object that can be used to render views.
+ * @property string $dropDownList2ID if $model exists, it will define the id and name of dropdown list #2 by $model, orwise it is self for the id and name of dropdown list #2. The default is account_id
  *
  * @author Peter (peter.ziv@hotmail.com)
  * @copyright Copyright (c) 2016
  * @example 
-                 <?=
-                ZSelect2Widget::widget([
+            echo ZSelect2Widget::widget([
                     'label' => 'From',
                     'formid' => $form->getId(),
-//                    'dropDownList1Name' => 'account_type',
-//                    'postUrl' => 'account/list',
+                    'dropDownList1Name' => 'account_type',
+                    'postUrl' => 'account/list',
                     'initList1' => $accountTypes,
                     'model' => $model,
-//                    'dropDownList2ID' => 'account_id',
+                    'dropDownList2ID' => 'account_id',
                     'initList2' => $initAccounts,
                 ]);
-                ?>
  */
 class ZSelect2Widget extends Widget {
 
@@ -42,7 +40,7 @@ class ZSelect2Widget extends Widget {
     public $initList2;
     public $postUrl = 'account/list';
     public $dropDownList1Name = 'account_type';
-    public $dropDownList2ID = 'account_id';// the dropdownlist 2 name is the same., if $model != null, it will be attribute of dropdown list #2
+    public $dropDownList2ID = 'account_id';// the dropdownlist #2 name is the same., if $model != null, it will be attribute of dropdown list #2
     public $model = null;
 
     public function init() {
