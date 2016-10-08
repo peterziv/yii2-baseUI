@@ -20,17 +20,16 @@ use yii\helpers\Html;
  *
  * @author Peter (peter.ziv@hotmail.com)
  * @copyright Copyright (c) 2016
- * @example 
-            echo ZSelect2Widget::widget([
-                    'label' => 'From',
-                    'formid' => $form->getId(),
-                    'dropDownList1Name' => 'account_type',
-                    'postUrl' => 'account/list',
-                    'initList1' => $accountTypes,
-                    'model' => $model,
-                    'dropDownList2ID' => 'account_id',
-                    'initList2' => $initAccounts,
-                ]);
+ * @example  echo ZSelect2Widget::widget([ 
+ *                     'label' => 'From',
+ *                     'formid' => $form->getId(),
+ *                     'dropDownList1Name' => 'account_type',
+ *                     'postUrl' => 'account/list',
+ *                     'initList1' => $accountTypes,
+ *                     'model' => $model,
+ *                     'dropDownList2ID' => 'account_id',
+ *                     'initList2' => $initAccounts,
+ *                 ]);
  */
 class ZSelect2Widget extends Widget {
 
@@ -48,18 +47,12 @@ class ZSelect2Widget extends Widget {
     }
 
     public function run() {
-        $script = Html::beginTag('div');
-        $script.= Html::label($this->label);
-        $script.= Html::endTag('div');
+        $script = Html::tag('div', Html::label($this->label, '', ['class' => "control-label"]), ['class' => 'form-group']);
         $script.= Html::beginTag('div',['class' => "body-content"]);
         $script.= Html::beginTag('div', ['class' => "row"]);
         $script.= Html::beginTag('div', ['class' => "col-lg-5"]);
         $script.= Html::dropDownList($this->dropDownList1Name, null, $this->initList1, array(
-            'onchange' => '$.ajax({cache: false,type: "POST",'
-                . 'url:"' . yii::$app->urlManager->createUrl($this->postUrl) . '",'
-                . 'data:$("#' . $this->formid . '").serialize(),'
-                . 'async: false,error: function(request) {alert("Connection error");},'
-                . 'success: function(data) {$("#'.$this->getIDofDropDownList2().'").html(data);}});',
+            'onchange' => $this->changeOnDropDownList1(),
             'class' => 'form-control',
             ));
         $script.= Html::endTag('div');
@@ -72,6 +65,15 @@ class ZSelect2Widget extends Widget {
         return $script;
     }
     
+    protected function changeOnDropDownList1() {
+        return '$.ajax({cache: false,type: "POST",'
+        . 'url:"' . yii::$app->urlManager->createUrl($this->postUrl) . '",'
+        . 'data:$("#' . $this->formid . '").serialize(),'
+        . 'async: false,error: function(request) {alert("Connection error");},'
+        . 'success: function(data) {$("#'.$this->getIDofDropDownList2().'").html(data);}});';
+    }
+
+
     protected function getIDofDropDownList2(){
         $id2 = $this->dropDownList2ID;
         if(!is_null($this->model)){
