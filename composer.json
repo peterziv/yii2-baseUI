@@ -1,5 +1,5 @@
 {
-    "name": "peterziv/yii2-basewidgets",
+    "name": "peterziv/yii2-basicwidgets",
     "version": "1.0.0",
     "description": "Some basic widgets for Yii2",
     "type": "library",
@@ -12,6 +12,6 @@
         }
     ],
     "autoload": {
-      "psr-4": { "peterziv\\basewidgets\\": "" }
+      "psr-4": { "peterziv\\basicwidgets\\": "" }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace peterziv\basewidgets;
+namespace peterziv\basicwidgets;
 
 use yii;
 use yii\base\Widget;

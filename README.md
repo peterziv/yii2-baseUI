@@ -1,9 +1,9 @@
-# yii2-basewidgets
+# yii2-basicwidgets
 Some simple widgets for Yii2
 
 ## 安装 (Installation):
 ```
-$ composer require "peterziv/yii2-basewidgets:dev-master"
+$ composer require "peterziv/yii2-basicwidgets:dev-master"
 ```
 
 ## 示例 (Demo):
@@ -26,7 +26,7 @@ $ composer require "peterziv/yii2-basewidgets:dev-master"
 ### view:
 
 ```php
-use peterziv\basewidgets\ZSelect2Widget;
+use peterziv\basicwidgets\ZSelect2Widget;
 use yii\widgets\ActiveForm;
 use app\models\ModelA;
 ...
@@ -53,7 +53,7 @@ echo ZSelect2Widget::widget([
 ```
 
 ```php
-use peterziv\basewidgets\ZSelect2InputWidget;
+use peterziv\basicwidgets\ZSelect2InputWidget;
 use yii\widgets\ActiveForm;
 use app\models\ModelA;
 ...

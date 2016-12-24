@@ -1,10 +1,10 @@
 <?php
 
-namespace peterziv\basewidgets;
+namespace peterziv\basicwidgets;
 
 use yii;
 use yii\helpers\Html;
-use peterziv\basewidgets\ZSelect2Widget;
+use peterziv\basicwidgets\ZSelect2Widget;
 
 /**
  * 
