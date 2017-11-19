@@ -53,7 +53,8 @@ class ZSelect2Widget extends Widget {
         parent::init();
     }
 
-    public function run() {
+    public function run()
+    {
         $script = Html::beginTag('div', ['class' => 'form-group']);
         $script .= Html::label($this->label, '', ['class' => "control-label"]);
         $script .= Html::beginTag('div', ['class' => "body-content"]);
@@ -62,7 +63,7 @@ class ZSelect2Widget extends Widget {
         $script .= $this->getElementofDropDownList1();
         $script .= Html::endTag('div');
         $script .= Html::beginTag('div', ['class' => "col-lg-7"]);
-        $script .= $this->getElementofDropDownList2();
+        $script .= $this->getElementOfDropDownList2();
         $script .= Html::endTag('div');
         $script .= Html::endTag('div');
         $script .= Html::endTag('div');
@@ -86,16 +87,18 @@ class ZSelect2Widget extends Widget {
         ]);
     }
 
-    protected function changeOnDropDownList1() {
+    protected function changeOnDropDownList1()
+    {
         return '$.ajax({cache: false,type: "POST",'
             . 'url:"' . yii::$app->urlManager->createUrl($this->postUrl) . '",'
             . 'data:$("#' . $this->formid . '").serialize(),'
             . 'async: false,error: function(request) {alert("Connection error");},'
-            . 'success: function(data) {$("#' . $this->getIDofDropDownList2() . '").html(data);}});';
+            . 'success: function(data) {$("#' . $this->getIdOfDropDownList2() . '").html(data);}});';
     }
 
 
-    protected function getIDofDropDownList2(){
+    protected function getIdOfDropDownList2()
+    {
         $id2 = $this->dropDownList2Id;
         if (!is_null($this->model2)) {
             $id2 = Html::getInputId($this->model2, $this->dropDownList2Id);
@@ -103,7 +106,8 @@ class ZSelect2Widget extends Widget {
         return $id2;
     }
 
-    protected function getElementofDropDownList2(){
+    protected function getElementOfDropDownList2()
+    {
         if (is_null($this->model2)) {
             return Html::dropDownList($this->dropDownList2Id, null, $this->initList2, ['class' => 'form-control', 'id' => $this->dropDownList2Id]);
         }
